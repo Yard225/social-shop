@@ -1,0 +1,425 @@
+{
+  "version": "6.0",
+  "nxVersion": "18.3.5",
+  "deps": {
+    "@nrwl/nx": "^7.8.7",
+    "nx": "^18.3.1",
+    "typescript": "~5.4.4",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "husky": "^9.0.10",
+    "@commitlint/cli": "^19.4.0"
+  },
+  "pathMappings": {
+    "@shop/*": [
+      "packages/*/src"
+    ],
+    "@shop/shared-kernel": [
+      "packages/shared-kernel/src"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "@org/shared-kernel": [
+        {
+          "file": "packages/shared-kernel/index.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "packages/shared-kernel/package.json",
+          "hash": "4240598156209176321",
+          "deps": [
+            "npm:jest",
+            "npm:ts-jest",
+            "npm:@types/jest"
+          ]
+        },
+        {
+          "file": "packages/shared-kernel/src/money.vo.ts",
+          "hash": "8283247169060327985"
+        },
+        {
+          "file": "packages/shared-kernel/src/result.ts",
+          "hash": "13324763771768152723"
+        },
+        {
+          "file": "packages/shared-kernel/src/stock-quantity.vo.ts",
+          "hash": "2974335746767025655"
+        },
+        {
+          "file": "packages/shared-kernel/tsconfig.json",
+          "hash": "3244421341483603138"
+        }
+      ],
+      "@org/api-gateway": [
+        {
+          "file": "platform/api-gateway/package.json",
+          "hash": "11199707525255745862",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/graphql",
+            "npm:graphql",
+            "@org/shared-kernel",
+            "@org/shared-infra",
+            "npm:jest",
+            "npm:ts-jest",
+            "npm:@types/jest",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "platform/api-gateway/tsconfig.json",
+          "hash": "3244421341483603138"
+        }
+      ],
+      "@org/shared-infra": [
+        {
+          "file": "packages/shared-infra/index.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "packages/shared-infra/package.json",
+          "hash": "73150724494615012",
+          "deps": [
+            "npm:pino",
+            "npm:dotenv",
+            "npm:unleash-client",
+            "@org/shared-kernel",
+            "npm:jest",
+            "npm:ts-jest",
+            "npm:@types/jest"
+          ]
+        },
+        {
+          "file": "packages/shared-infra/tsconfig.json",
+          "hash": "3244421341483603138"
+        }
+      ],
+      "@org/catalog-svc": [
+        {
+          "file": "services/catalog-svc/package.json",
+          "hash": "6406139030347631733",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/platform-express",
+            "@org/shared-kernel",
+            "@org/shared-infra",
+            "npm:@prisma/client",
+            "npm:kafkajs",
+            "npm:class-transformer",
+            "npm:class-validator",
+            "npm:reflect-metadata",
+            "npm:rxjs",
+            "npm:@nrwl/nest",
+            "npm:@nrwl/jest",
+            "npm:@nestjs/cli",
+            "npm:jest",
+            "npm:ts-jest",
+            "npm:@types/jest",
+            "npm:eslint",
+            "npm:eslint-config-prettier",
+            "npm:prettier",
+            "npm:typescript",
+            "npm:prisma"
+          ]
+        },
+        {
+          "file": "services/catalog-svc/src/adapters/in-memory-product.repository.ts",
+          "hash": "11339729620791692721"
+        },
+        {
+          "file": "services/catalog-svc/src/adapters/in/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/src/adapters/out/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/src/controllers/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/src/core/aggregates/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/src/core/aggregates/product.aggregate.ts",
+          "hash": "17293675424809646898"
+        },
+        {
+          "file": "services/catalog-svc/src/core/entities/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/src/core/entities/variant.entity.ts",
+          "hash": "6308062332088277368"
+        },
+        {
+          "file": "services/catalog-svc/src/core/events/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/src/core/ports/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/src/core/ports/product.interface.ts",
+          "hash": "12282701727089877300"
+        },
+        {
+          "file": "services/catalog-svc/src/core/usecases/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/src/core/usecases/adjust-stock.usecase.ts",
+          "hash": "7245072130904787595"
+        },
+        {
+          "file": "services/catalog-svc/src/core/value-objects/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/tests/e2e/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/tests/fixtures/product.fixture.ts",
+          "hash": "3946907210919413021"
+        },
+        {
+          "file": "services/catalog-svc/tests/int/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/tests/unit/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/catalog-svc/tests/unit/adjust-stock.test.ts",
+          "hash": "14743988785793134042"
+        }
+      ],
+      "@org/ordering-svc": [
+        {
+          "file": "services/ordering-svc/package.json",
+          "hash": "13648399337091055834",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/platform-express",
+            "@org/shared-kernel",
+            "@org/shared-infra",
+            "npm:@prisma/client",
+            "npm:kafkajs",
+            "npm:class-transformer",
+            "npm:class-validator",
+            "npm:reflect-metadata",
+            "npm:rxjs",
+            "npm:@nestjs/cli",
+            "npm:@nrwl/nest",
+            "npm:@nrwl/jest",
+            "npm:jest",
+            "npm:ts-jest",
+            "npm:@types/jest",
+            "npm:eslint",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "services/ordering-svc/src/adapters/in-memory-order.repository.ts",
+          "hash": "1051452011089919803"
+        },
+        {
+          "file": "services/ordering-svc/src/adapters/in/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/adapters/out/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/adapters/out/prisma-order.repository.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/core/aggregates/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/core/aggregates/order.aggregate.ts",
+          "hash": "6146028060602374611"
+        },
+        {
+          "file": "services/ordering-svc/src/core/entities/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/core/entities/order-item.entity.ts",
+          "hash": "7686929906699419307"
+        },
+        {
+          "file": "services/ordering-svc/src/core/events/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/core/exceptions/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/core/ports/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/core/ports/order-repository.interface.ts",
+          "hash": "6824689015197264815"
+        },
+        {
+          "file": "services/ordering-svc/src/core/usecase/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/core/usecase/add-item-to-cart.usecase.ts",
+          "hash": "4435456847207887226"
+        },
+        {
+          "file": "services/ordering-svc/src/core/value-objects/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/core/value-objects/product-sku.vo.ts",
+          "hash": "3121519410216731022"
+        },
+        {
+          "file": "services/ordering-svc/src/core/value-objects/result.ts",
+          "hash": "18164486227812464591"
+        },
+        {
+          "file": "services/ordering-svc/src/tests/e2e/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/tests/int/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/tests/unit/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "services/ordering-svc/src/tests/unit/add-item-to-cart.test.ts",
+          "hash": "15652650171349999526"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".env.example",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".github/workflow/pr-chack.yml",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".github/workflow/release.yml",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".github/workflow/service-ci.yml",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "12634402967133909834"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "7542827959994543354"
+      },
+      {
+        "file": "README.md",
+        "hash": "4885512235916773973"
+      },
+      {
+        "file": "app.controller.spec.ts",
+        "hash": "2727664763654384995"
+      },
+      {
+        "file": "app.controller.ts",
+        "hash": "4552329938751326480"
+      },
+      {
+        "file": "app.module.ts",
+        "hash": "11673476679848632172"
+      },
+      {
+        "file": "app.service.ts",
+        "hash": "16892833931858030153"
+      },
+      {
+        "file": "docs/readme-architecture.md",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "13183347058815926503"
+      },
+      {
+        "file": "jest.config.int.ts",
+        "hash": "17705863685062979476"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "13634544274257303274"
+      },
+      {
+        "file": "main.ts",
+        "hash": "6783086878492621953"
+      },
+      {
+        "file": "nest-cli.json",
+        "hash": "789240945379598733"
+      },
+      {
+        "file": "package.json",
+        "hash": "4477183658690888820"
+      },
+      {
+        "file": "packages/README.md",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "8556798025890141168"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "tests/app.e2e-spec.ts",
+        "hash": "12914262088967866573"
+      },
+      {
+        "file": "tests/jest-e2e.json",
+        "hash": "7570273541430074424"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "2538434575307629062"
+      },
+      {
+        "file": "tsconfig.build.json",
+        "hash": "276845246908739715"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "1113768818573961485"
+      }
+    ]
+  }
+}

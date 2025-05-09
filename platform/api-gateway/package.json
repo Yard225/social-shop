@@ -1,0 +1,25 @@
+{
+    "name": "@org/api-gateway",
+    "version": "0.1.0",
+    "description": "GraphQL / REST BFF for Social-Shop",
+    "main": "src/main.ts",
+    "scripts": {
+      "start": "nest start",
+      "start:dev": "nest start --watch",
+      "test": "jest"
+    },
+    "dependencies": {
+      "@nestjs/common": "^10.3.7",
+      "@nestjs/core": "^10.3.7",
+      "@nestjs/graphql": "^13.1.0",
+      "graphql": "^16.9.0",
+      "@org/shared-kernel": "workspace:*",
+      "@org/shared-infra": "workspace:*"
+    },
+    "devDependencies": {
+      "jest": "^29.7.0",
+      "ts-jest": "^29.1.4",
+      "@types/jest": "^29.5.11",
+      "typescript": "~5.4.4"
+    }
+  }

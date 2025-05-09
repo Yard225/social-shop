@@ -1,0 +1,23 @@
+{
+    "name": "@org/shared-kernel",
+    "version": "1.0.0",
+    "description": "Domain-agnostic building blocks (VO, events, primitives)",
+    "main": "src/index.ts",
+    "types": "src/index.ts",
+    "exports": {
+      ".": {
+        "types": "./src/index.ts",
+        "default": "./src/index.ts"
+      }
+    },
+    "files": [ "src/**/*" ],
+    "scripts": {
+      "test": "jest"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "jest": "^29.7.0",
+      "ts-jest": "^29.1.4",
+      "@types/jest": "^29.5.11"
+    }
+  }

@@ -1,0 +1,19 @@
+{
+    "name": "@org/shared-infra",
+    "version": "1.0.0",
+    "description": "Cross-cutting technical utilities (logger, config, feature-flags)",
+    "main": "src/index.ts",
+    "types": "src/index.ts",
+    "files": [ "src/**/*" ],
+    "dependencies": {
+      "pino": "^9.6.0",
+      "dotenv": "^16.4.5",
+      "unleash-client": "^5.4.0",
+      "@org/shared-kernel": "workspace:*"
+    },
+    "devDependencies": {
+      "jest": "^29.7.0",
+      "ts-jest": "^29.1.4",
+      "@types/jest": "^29.5.11"
+    }
+  }
