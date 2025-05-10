@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".", // ← indispensable
+    "baseUrl": ".",
     "moduleResolution": "node",
     "paths": {
-      /* générique : tous les paquets du mono-repo */
-      "@shop/*": ["packages/*/src"],
-
-      /* alias explicite, si besoin de pointer ailleurs */
-      "@shop/shared-kernel": ["packages/shared-kernel/src"]
+      "@org/*": ["packages/*/src"],
+      "@org/shared-kernel": ["packages/shared-kernel/src"]
     }
   },
   "exclude": ["node_modules", "dist"]

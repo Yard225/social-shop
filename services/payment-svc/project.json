@@ -1,0 +1,21 @@
+{
+  "name": "payment-svc",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "services/payment-svc/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/node:build",
+      "options": { "outputPath": "dist/services/payment-svc" }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/services/payment-svc"],
+      "options": {
+        "jestConfig": "services/payment-svc/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:payment", "type:service"]
+}

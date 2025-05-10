@@ -1,0 +1,36 @@
+import { DomainEvent } from 'packages/shared-kernel/src';
+import { IOrderRepository } from '../ports/order-repository.interface';
+import { IStockService } from '../services/stock.service';
+
+type Request = { orderId: string };
+
+type Response = { events: DomainEvent[] };
+
+export class CheckoutOrderUseCase {
+  constructor(
+    private readonly repository: IOrderRepository,
+    private readonly stock: IStockService,
+  ) {}
+
+  async execute(request: Request): Promise<Response> {
+    const order = await this.repository.findById(request.orderId);
+
+    if (!order) {
+      throw new Error('Order not found');
+    }
+
+    for (const item of order.items) {
+      const isAvailable = await this.stock.isAvailable(item.props.productId, item.props.qty);
+
+      if (!isAvailable) {
+        throw new Error(`Insufficient stock for ${item.props.productId}`);
+      }
+    }
+
+    order.checkout();
+
+    await this.repository.create(order);
+
+    return { events: order.pullEvents() };
+  }
+}

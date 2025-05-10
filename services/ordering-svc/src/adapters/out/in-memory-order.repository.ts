@@ -1,5 +1,5 @@
 import { Order } from '../../core/aggregates/order.aggregate';
-import { IOrderRepository } from '../ports/order-repository.interface';
+import { IOrderRepository } from '../../core/ports/order-repository.interface';
 
 export class InMemoryOrderRepository implements IOrderRepository {
   constructor(public readonly database: Order[] = []) {}

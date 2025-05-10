@@ -1,7 +1,5 @@
-import { ProductSKU } from '../../../../../packages/shared-kernel/src/value-objects/product-sku.vo';
-
 type ItemProps = {
-  readonly productId: ProductSKU;
+  readonly productId: string;
   qty: number;
 };
 

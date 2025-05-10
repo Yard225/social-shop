@@ -1,5 +1,3 @@
-import { Result } from '@org/shared-kernel';
-
 export class StockQuantity {
   private constructor(private _value: number) {}
 
@@ -7,11 +5,11 @@ export class StockQuantity {
     return this._value;
   }
 
-  static create(initialQty: number): Result<StockQuantity, Error> {
+  static create(initialQty: number): StockQuantity {
     if (!Number.isInteger(initialQty) || initialQty < 0) {
-      return Result.err(new Error('Stock must be a non-negative integer'));
+      throw new Error('Stock must be a non-negative integer');
     }
-    return Result.ok(new StockQuantity(initialQty));
+    return new StockQuantity(initialQty);
   }
 
   add(delta: number) {

@@ -14,7 +14,7 @@ describe('Feature: Add Item to cart', () => {
   describe('Scenario: Happy Path', () => {
     const payload = {
       orderId: 'order-001',
-      productId: ProductSKU.create('SKU-CAM123').getValue() as ProductSKU,
+      productId: ProductSKU.create('SKU-CAM123').toString(),
       qty: 1,
     };
 

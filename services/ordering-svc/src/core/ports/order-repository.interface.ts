@@ -1,4 +1,4 @@
-import { Order } from '../core/aggregates/order.aggregate';
+import { Order } from '../aggregates/order.aggregate';
 
 export interface IOrderRepository {
   findById(id: string): Promise<Order | null>;
