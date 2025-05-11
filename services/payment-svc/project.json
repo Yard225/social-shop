@@ -10,9 +10,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["coverage/services/payment-svc"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "services/payment-svc/jest.config.ts",
+        "jestConfig": "services/payment-svc/jest.config.js",
         "passWithNoTests": true
       }
     }

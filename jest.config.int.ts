@@ -12,4 +12,19 @@ export default {
   maxWorkers: 1,
   globalSetup: './src/tests/setup/global-setup.ts',
   globalTeardown: './src/tests/setup/global-teardown.ts',
+  transform: {
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig.json',
+        isolatedModules: true,
+        diagnostics: {
+          ignoreCodes: [151001],
+        },
+      },
+    ],
+  },
+  moduleNameMapper: {
+    '^@org/(.*)$': '<rootDir>/packages/$1/src',
+  },
 };

@@ -32,7 +32,7 @@ export default tseslint.config(
       '@typescript-eslint': tseslint.plugin,
     },
     rules: {
-      semi: 'off',
+      semi: ['error', 'always'],
     },
   },
 )

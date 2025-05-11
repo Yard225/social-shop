@@ -21,16 +21,13 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'ts', 'tsx'],
 
   transform: {
-    '^.+\\.tsx?$': [
-      'ts-jest',
-      {
-        diagnostics: false,
-        isolatedModules: true,
-        jsx: 'react',
-        target: 'es2017',
-        allowJs: true
+    '^.+\\.tsx?$': ['ts-jest', {
+      tsconfig: 'tsconfig.json',
+      isolatedModules: true,
+      diagnostics: {
+        ignoreCodes: [151001]
       }
-    ]
+    }]
   },
 
   // alias vers notre mono-repo
