@@ -7,6 +7,8 @@ type Request = { orderId: string; amountCfa: number; phone: string };
 
 type Response = { paymentId: string };
 
+export const INITIATE_PAYMENT_USECASE = 'INITIATE_PAYMENT_USECASE';
+
 export class InitiatePaymentUseCase {
   constructor(private readonly repository: IPaymentRepository) {}
 
@@ -21,7 +23,7 @@ export class InitiatePaymentUseCase {
     });
 
     await this.repository.create(transaction);
-    
+
     return { paymentId: transaction.props.id };
   }
 }

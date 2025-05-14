@@ -2,7 +2,8 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   transform: {
-    '^.+\\.tsx?$': ['babel-jest', { configFile: './babel.config.js' }]
+    // '^.+\\.tsx?$': ['babel-jest', { configFile: './babel.config.js' }]
+    '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
@@ -10,6 +11,7 @@ module.exports = {
   coverageDirectory: 'coverage',
   moduleNameMapper: {
     '^@org/shared-kernel$': '<rootDir>/../../packages/shared-kernel/src',
-    '^@/(.*)$': '<rootDir>/src/$1'
-  }
-}; 
+    '^@org/shared-infra$': '<rootDir>/../../packages/shared-infra/src',
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
+};

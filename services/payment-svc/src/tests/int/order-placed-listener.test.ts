@@ -21,7 +21,7 @@ describe('Feature: EventBus → OrderPlacedListener', () => {
   describe('Scenario: Happy Path', () => {
     it('persists a PENDING payment transaction when OrderPlaced is received', async () => {
       await eventBus.publish(event);
-      const payments = await repository.findAll(); //?
+      const payments = await repository.findAll();
 
       expect(payments.length).toBe(1);
       expect(payments[0].props.orderId).toBe('order-123');

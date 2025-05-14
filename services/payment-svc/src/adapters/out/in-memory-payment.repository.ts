@@ -1,6 +1,8 @@
 import { PaymentTransaction } from '../../core/aggregates/payment-transaction.aggregate';
 import { IPaymentRepository } from '../../core/ports/payment-repository.interface';
 
+export const I_PAYMENT_REPOSITORY = 'I_PAYMENT_REPOSITORY';
+
 export class InMemoryPaymentRepository implements IPaymentRepository {
   constructor(public readonly database: PaymentTransaction[] = []) {}
 

@@ -1,11 +1,11 @@
-import { ProductSKU } from '@org/shared-kernel/';
+import { ProductSKU } from '@org/shared-kernel';
 import { InMemoryOrderRepository } from '../../adapters/out/in-memory-order.repository';
 import { FakeStockService } from '../../adapters/out/fake-stock.service';
 import { Order } from '../../core/aggregates/order.aggregate';
 import { CheckoutOrderUseCase } from '../../core/usecase/checkout-order.usecase';
 import { InMemoryEventBus } from '../../adapters/out/in-memory-event-bus.repository';
 
-describe('Feature: Add Item to cart', () => {
+describe('Feature: Checkout Order', () => {
   const order = new Order('order-007');
   order.addItem(ProductSKU.create('SKU-CAM123').toString(), 1);
 
@@ -33,3 +33,7 @@ describe('Feature: Add Item to cart', () => {
 
   afterEach(async () => {});
 });
+function beforeEach(arg0: () => void) {
+  throw new Error('Function not implemented.');
+}
+

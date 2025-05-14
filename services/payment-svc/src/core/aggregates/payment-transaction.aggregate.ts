@@ -25,12 +25,13 @@ export class PaymentTransaction {
 
     this.props.status = 'CONFIRMED';
     this.props.externalRef = externalRef;
-    this.domainEvents.push(new PaymentConfirmed(this.props.id, this.props.orderId)); //?
+    const payment = new PaymentConfirmed(this.props.id, this.props.orderId);
+    this.domainEvents.push(payment);
   }
 
   pullEvents() {
     const event = [...this.domainEvents];
     this.domainEvents = [];
-    return event; //?
+    return event;
   }
 }

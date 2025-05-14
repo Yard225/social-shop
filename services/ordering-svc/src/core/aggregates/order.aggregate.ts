@@ -30,12 +30,12 @@ export class Order {
     }
 
     this.status = 'PLACED';
-    this.domainEvents.push(new OrderPlaced(this.id)); //?
+    this.domainEvents.push(new OrderPlaced(this.id));
   }
 
   pullEvents() {
     const event = [...this.domainEvents];
     this.domainEvents = [];
-    return event; //?
+    return event;
   }
 }

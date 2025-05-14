@@ -4,10 +4,7 @@ module.exports = {
   rootDir: '.',
 
   // où se trouvent réellement tes tests
-  roots: [
-    '<rootDir>/packages',
-    '<rootDir>/services'
-  ],
+  roots: ['<rootDir>/packages', '<rootDir>/services'],
 
   collectCoverage: false,
   preset: 'ts-jest',
@@ -21,17 +18,20 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'ts', 'tsx'],
 
   transform: {
-    '^.+\\.tsx?$': ['ts-jest', {
-      tsconfig: 'tsconfig.json',
-      isolatedModules: true,
-      diagnostics: {
-        ignoreCodes: [151001]
-      }
-    }]
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig.json',
+        isolatedModules: true,
+        diagnostics: {
+          ignoreCodes: [151001],
+        },
+      },
+    ],
   },
 
   // alias vers notre mono-repo
   moduleNameMapper: {
-    '^@org/(.*)$': '<rootDir>/packages/$1/src'
-  }
+    '^@org/(.*)$': '<rootDir>/packages/$1/src',
+  },
 };

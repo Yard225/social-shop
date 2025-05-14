@@ -1,15 +1,7 @@
 packages:
-  # Bibliothèques partagées
-  - 'packages/*'
-
-  # Micro-services (bounded contexts)
-  - 'services/*'
-
-  # Composants transverses de la plateforme (API Gateway, event-bus…)
-  - 'platform/*'
-
-  # Scripts ou outils d’infrastructure (facultatif)
-  - 'infra/tooling/*'
-
-  # Tous les dossiers docs ne sont **pas** des workspaces npm
-  # (on les exclut implicitement en ne les listant pas)
+  - packages/*
+  - services/*
+  - platform/*
+  - infra/tooling/*
+onlyBuiltDependencies:
+  - '@nestjs/core'

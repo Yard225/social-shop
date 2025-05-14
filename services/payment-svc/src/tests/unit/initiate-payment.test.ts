@@ -20,7 +20,7 @@ describe('Feature: InitiatePayment', () => {
     it('should create a PaymentTransaction in PENDING state', async () => {
       const result = await usecase.execute(payload);
 
-      const saved = await repository.findById(result.paymentId); //?
+      const saved = await repository.findById(result.paymentId);
       expect(saved!.props.status).toBe('PENDING');
       expect(saved!.props.orderId).toBe('order-007');
     });

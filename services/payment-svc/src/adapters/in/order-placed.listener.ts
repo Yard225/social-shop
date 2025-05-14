@@ -1,7 +1,7 @@
 import { OrderPlaced } from '../../../../ordering-svc/src/core/events/order-placed.event';
 import { InMemoryEventBus } from '../../../../ordering-svc/src/adapters/out/in-memory-event-bus.repository';
 import { InitiatePaymentUseCase } from '../../core/usecases/initiate-payment.usecase';
-import { DomainEvent } from 'packages/shared-kernel/src';
+import { DomainEvent } from '@org/shared-kernel';
 
 export class OrderPlacedListener {
   constructor(

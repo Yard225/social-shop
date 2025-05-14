@@ -1,4 +1,4 @@
-import { DomainEvent } from 'packages/shared-kernel/src';
+import { DomainEvent } from '@org/shared-kernel';
 import { IOrderRepository } from '../ports/order-repository.interface';
 import { IStockService } from '../services/stock.service';
 

@@ -1,5 +1,5 @@
 import { InMemoryOrderRepository } from '../../adapters/out/in-memory-order.repository';
-import { ProductSKU } from '../../../../../packages/shared-kernel/src/value-objects/product-sku.vo';
+import { ProductSKU } from '@org/shared-kernel';
 import { AddItemToCartUseCase } from '../../core/usecase/add-item-to-cart.usecase';
 
 describe('Feature: Add Item to cart', () => {
@@ -27,5 +27,7 @@ describe('Feature: Add Item to cart', () => {
     });
   });
 
-  afterEach(async () => {});
+  afterEach(async () => {
+    await repository.clear();
+  });
 });
