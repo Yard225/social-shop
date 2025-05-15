@@ -1,4 +1,4 @@
-import { DomainEvent } from '@org/shared-kernel';
+import { BaseUseCase, DomainEvent } from '@org/shared-kernel';
 import { IOrderRepository } from '../ports/order-repository.interface';
 import { IStockService } from '../services/stock.service';
 
@@ -6,14 +6,18 @@ type Request = { orderId: string };
 
 type Response = { events: DomainEvent[] };
 
-export class CheckoutOrderUseCase {
+export class CheckoutOrderUseCase extends BaseUseCase<Request, Response> {
   constructor(
     private readonly repository: IOrderRepository,
     private readonly stock: IStockService,
-  ) {}
+  ) {
+    super();
+  }
 
   async execute(request: Request): Promise<Response> {
-    const order = await this.repository.findById(request.orderId);
+    this.validateInput(request);
+
+    const order = await this.repository.findById(request.orderId); //?
 
     if (!order) {
       throw new Error('Order not found');

@@ -1,4 +1,4 @@
-import { Money } from '@org/shared-kernel';
+import { Money, ProductSKU } from '@org/shared-kernel';
 import { StockQuantity } from '../value-objects/stock-quantity.vo';
 
 /**
@@ -8,12 +8,12 @@ import { StockQuantity } from '../value-objects/stock-quantity.vo';
 
 export class Variant {
   private constructor(
-    public readonly sku: string,
+    public readonly sku: ProductSKU,
     public readonly price: Money,
     private readonly _stock: StockQuantity,
   ) {}
 
-  static create(props: { sku: string; price: Money; stock: number }) {
+  static create(props: { sku: ProductSKU; price: Money; stock: number }) {
     return new Variant(
       props.sku,
       props.price,

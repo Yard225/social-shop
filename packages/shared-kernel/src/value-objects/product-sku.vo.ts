@@ -8,9 +8,11 @@ export class ProductSKU {
 
     return new ProductSKU(raw);
   }
+
   public equals(other: string): boolean {
     return this.value === other;
   }
+
   public toString() {
     return this.value;
   }

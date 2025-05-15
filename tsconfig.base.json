@@ -4,7 +4,8 @@
     "moduleResolution": "node",
     "paths": {
       "@org/*": ["packages/*/src"],
-      "@org/shared-kernel": ["packages/shared-kernel/src"]
+      "@org/shared-kernel": ["packages/shared-kernel/src"],
+      "@org/shared-infra": ["packages/shared-infra/src"]
     }
   },
   "exclude": ["node_modules", "dist"]

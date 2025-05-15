@@ -33,7 +33,3 @@ describe('Feature: Checkout Order', () => {
 
   afterEach(async () => {});
 });
-function beforeEach(arg0: () => void) {
-  throw new Error('Function not implemented.');
-}
-

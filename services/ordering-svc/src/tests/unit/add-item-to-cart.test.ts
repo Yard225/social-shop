@@ -27,7 +27,5 @@ describe('Feature: Add Item to cart', () => {
     });
   });
 
-  afterEach(async () => {
-    await repository.clear();
-  });
+  afterEach(async () => {});
 });

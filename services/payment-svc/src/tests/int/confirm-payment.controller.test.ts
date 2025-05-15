@@ -1,23 +1,36 @@
-import request from 'supertest';
-
+import { Test } from '@nestjs/testing';
+import { INestApplication } from '@nestjs/common';
+import * as request from 'supertest';
+import { PaymentModuleTest } from '../../payment.module';
 import { InMemoryPaymentRepository } from '../../adapters/out/in-memory-payment.repository';
 import { InitiatePaymentUseCase } from '../../core/usecases/initiate-payment.usecase';
-import { TestApp } from '../utils/test-app';
 
 describe('Feature: HTTP Callback → ConfirmPaymentController', () => {
-  let app: TestApp;
+  let app: INestApplication;
   let repository: InMemoryPaymentRepository;
   let initiateUsecase: InitiatePaymentUseCase;
   let paymentId: string;
 
   beforeEach(async () => {
-    app = new TestApp();
     repository = new InMemoryPaymentRepository();
     initiateUsecase = new InitiatePaymentUseCase(repository);
+
+    const modRef = await Test.createTestingModule({
+      imports: [PaymentModuleTest],
+      providers: [
+        {
+          provide: InMemoryPaymentRepository,
+          useFactory: () => repository,
+        },
+      ],
+    }).compile();
+
+    app = modRef.createNestApplication();
+    await app.init();
   });
 
   afterEach(async () => {
-    await app.cleanup();
+    await app.close();
   });
 
   describe('Scenario: Happy Path', () => {
@@ -31,7 +44,7 @@ describe('Feature: HTTP Callback → ConfirmPaymentController', () => {
 
       paymentId = res.paymentId;
 
-      await request(app.getHttpServer())
+      const response = await request(app.getHttpServer())
         .post('/payments/mobile-money/callback')
         .send({ paymentId, externalRef: 'MM-TXN-99' })
         .expect(202);

@@ -10,9 +10,9 @@ export class Order {
 
   constructor(public readonly id: string) {}
 
-  addItem(sku: string, qty: number) {
+  addItem(sku: string, qty: number): void {
     const existing = this.items.find((item) => item.props.productId === sku);
-    
+
     if (existing) {
       existing.props.qty += qty;
     } else {
@@ -20,7 +20,7 @@ export class Order {
     }
   }
 
-  checkout() {
+  checkout(): void {
     if (this.items.length === 0) {
       throw new Error('Empty cart');
     }

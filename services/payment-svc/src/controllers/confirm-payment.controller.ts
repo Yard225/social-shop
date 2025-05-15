@@ -1,18 +1,22 @@
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common';
 import { ConfirmPaymentUseCase } from '../core/usecases/confirm-payment.usecase';
-import { InMemoryEventBus } from '../../../ordering-svc/src/adapters/out/in-memory-event-bus.repository';
 
-@Controller('/payments/mobile-money')
+export class ConfirmPaymentDto {
+  paymentId!: string;
+  externalRef!: string;
+}
+
+@Controller('payments/mobile-money')
 export class ConfirmPaymentController {
-  constructor(
-    private readonly useCase: ConfirmPaymentUseCase,
-    private readonly eventBus: InMemoryEventBus, // port EventPublisher dans prod
-  ) {}
+  constructor(private readonly confirmUseCase: ConfirmPaymentUseCase) {}
 
-    @Post('callback')
-    @HttpCode(202)
-    async callback(@Body() dto: { paymentId: string; externalRef: string }): Promise<void> {
-      const { events } = await this.useCase.execute(dto);
-      await this.eventBus.publishAll(events);
-    }
+  @Post('callback')
+  @HttpCode(HttpStatus.ACCEPTED) // 202
+  async handleCallback(@Body() dto: ConfirmPaymentDto): Promise<void> {
+    await this.confirmUseCase.execute({
+      paymentId: dto.paymentId,
+      externalRef: dto.externalRef,
+    });
+    // 202 Accepted sans payload – le provider mobile-money n’a pas besoin de réponse détaillée
+  }
 }
